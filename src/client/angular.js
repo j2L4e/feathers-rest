@@ -9,12 +9,13 @@ export default class Service extends Base {
       throw new Error(`Please pass angular's 'http' (instance) and and object with 'Headers' (class) to feathers-rest`);
     }
 
-    const config = {
+    const url = options.url;
+    const requestOptions = {
       method: options.method,
       body: options.body,
       headers: new Headers(
         Object.assign(
-          {Accept: 'application/json'},
+          { Accept: 'application/json' },
           this.options.headers,
           options.headers
         )
@@ -35,9 +36,9 @@ export default class Service extends Base {
      */
 
     return new Promise((resolve, reject) => {
-      http.request(options.url, config)
+      http.request(url, requestOptions)
         .subscribe(resolve, reject);
-    })
+      })
       .then(res => res.json())
       .catch(error => {
         const response = error.response || error;
