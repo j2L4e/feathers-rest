@@ -40,9 +40,10 @@ export default class Service extends Base {
     })
       .then(res => res.json())
       .catch(error => {
+        debugger;
         const response = error.response || error;
 
-        throw response instanceof Error ? response : (response.data || response);
+        throw response instanceof Error ? response : (response.json() || response);
       });
   }
 }
