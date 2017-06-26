@@ -70,7 +70,7 @@ const app = feathers()
   // or
     .configure(rest('http://baseUrl').axios(axios))
   // or (using injected Http instance)
-    .configure(rest('http://baseUrl').angular({http, Headers}))
+    .configure(rest('http://baseUrl').angular(http, { Headers }))
 ```
 
 ## License

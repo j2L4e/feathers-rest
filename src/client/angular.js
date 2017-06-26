@@ -2,10 +2,11 @@ import Base from './base';
 
 export default class Service extends Base {
   request(options) {
-    const {http, Headers} = this.connection;
+    const http = this.connection;
+    const Headers = this.options.Headers;
 
     if(!http || !Headers) {
-      throw new Error(`Please pass an object with angular's 'http' (instance) and 'Headers' (class) to feathers-rest`);
+      throw new Error(`Please pass angular's 'http' (instance) and and object with 'Headers' (class) to feathers-rest`);
     }
 
     const config = {
