@@ -59,6 +59,7 @@ import superagent from 'superagent';
 import axios from 'axios';
 import {Http, Headers} from '@angular/http';
 
+
 const app = feathers()
   .configure(rest('http://baseUrl').jquery(jQuery))
   // or
